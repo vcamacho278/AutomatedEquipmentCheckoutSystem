@@ -8,14 +8,18 @@ namespace AutomatedEquipmentCheckoutSystem
 {
     public class Equipment
     {
-        public int EquipmentID { get; set; }  // Unique identifier for each equipment
-        public string Name { get; set; }      // Name of the equipment
-        public string Status { get; set; }    // Status (e.g., Available, In Use)
+        public int EquipmentID { get; set; }
+        public string Name { get; set; }
+        public string Status { get; set; } = "Available";
 
-        // Method to check availability
         public bool CheckAvailability()
         {
-            return Status == "Available"; // Returns true if the equipment is available
+            return Status == "Available";
+        }
+
+        public void UpdateStatus(string newStatus)
+        {
+            Status = newStatus;
         }
     }
 }

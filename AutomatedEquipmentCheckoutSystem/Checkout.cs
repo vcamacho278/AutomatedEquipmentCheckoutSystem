@@ -8,25 +8,27 @@ namespace AutomatedEquipmentCheckoutSystem
 {
     public class Checkout
     {
-        public int CheckoutID { get; set; }    // Unique identifier for each checkout transaction
-        public int UserID { get; set; }        // ID of the user performing the checkout
-        public int EquipmentID { get; set; }  // ID of the equipment being checked out
-        public DateTime DueDate { get; set; } // Due date for returning the equipment
+        public int CheckoutID { get; set; }
+        public int UserID { get; set; }
+        public int EquipmentID { get; set; }
+        public DateTime DueDate { get; set; }
 
-        // Method to process checkout
-        public bool CheckoutItem(int userID, int equipmentID)
+        public bool CheckOutItem(int userID, int equipmentID)
         {
-            // Basic implementation: For now, assume checkout is always successful
-            this.UserID = userID;
-            this.EquipmentID = equipmentID;
-            this.DueDate = DateTime.Now.AddDays(7); // Set a default due date 7 days from now
-            return true; // Indicate success
+            // Simulating a checkout process
+            DueDate = DateTime.Now.AddDays(7);
+            Console.WriteLine($"Checkout Successful: User {userID} checked out Equipment {equipmentID} with Due Date: {DueDate}");
+            return true;
         }
 
-        // Method to return the item
-        public void ReturnItem()
+        public void ReturnItem(int equipmentID)
         {
-            EquipmentID = 0; // Clear the equipment ID to indicate it's been returned
+            Console.WriteLine($"Equipment {equipmentID} has been returned.");
+        }
+
+        public void NotifyOverdue()
+        {
+            Console.WriteLine("Overdue notification sent to the manager.");
         }
     }
 }
